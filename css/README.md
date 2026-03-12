@@ -67,13 +67,14 @@ All tokens live in `:root` under the `theme` layer.
 | Font families | `--font-sans-base`, `--font-sans`, `--font-display` |
 | Font weights | `--font-light` through `--font-black` |
 | Line heights | `--leading-micro` (0.85) → `--leading-loose` (1.7) |
+| Colors | Base, brand, status, grays |
+| Semantic colors | `--color-background/foreground/accent`, `--color-error/pending/success` |
+| Shadows | `--shadow-elevation-low/medium/high` |
 | Font sizes | `--font-size--3` → `--font-size-9` (fluid via `clamp`) |
 | Spacing | `--space-2xs` → `--space-4xl` + one-up pairs like `--space-s-m` |
-| Colors | Base, brand (blue, orange), status (red, yellow, green), grays |
-| Semantic colors | `--color-background/foreground/accent`, `--color-error/pending/success` |
 | Easing | `--ease-in/out/in-out-sine`, `--ease-in/out/in-out-cubic` |
-| Shadows | `--shadow-elevation-low/medium/high` |
 | Measures | `--radius-s/m/l`, `--stroke`, `--flow-space`, `--site-margin`, `--wrapper-max-width` |
+| Z-index | `--z-base`, `--z-sidebar`, `--z-toast`, `--z-popup`, `--z-overlay` |
 
 Font sizes and spacing use [Utopia](https://utopia.fyi/) fluid scale (400px → 1440px viewport).
 
