@@ -1,0 +1,425 @@
+@layer base {
+  /*
+  Global styles
+
+  Low-specificity, global styles that apply to the whole
+  project: https://cube.fyi/css.html
+*/
+  body {
+    -webkit-font-smoothing: antialiased;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-size: var(--font-size-0);
+    font-family: var(--font-sans);
+    line-height: var(--leading-standard);
+    font-size-adjust: from-font;
+    margin: 0;
+    position: relative;
+  }
+
+  :is(h1, h2, h3, h4) {
+    line-height: var(--leading-tight);
+    text-wrap: pretty;
+  }
+
+  h1 {
+    font-size: var(--font-size-6);
+    line-height: var(--leading-tight);
+  }
+
+  :is(h2, h3, h4) {
+    line-height: var(--leading-fine);
+    font-weight: var(--font-medium);
+  }
+
+  h2 {
+    font-size: var(--font-size-4);
+  }
+
+  h3 {
+    font-size: var(--font-size-2);
+  }
+
+  :is(h4, h5, h6) {
+    font-size: var(--font-size-1);
+  }
+
+  small {
+    color: var(--color-gray-d);
+    font-size: var(--font-size--1);
+  }
+
+  q {
+    font-style: italic;
+  }
+
+  ul,
+  ol {
+    margin: 0;
+    padding: 0 0 0 1.7ch;
+
+    &[data-style="minimal"] {
+      list-style-type: none;
+    }
+  }
+
+  ul:not([class]) {
+    list-style-type: disc;
+  }
+
+  ul:not([class]) > li,
+  ol:not([class]) > li {
+    padding-inline-start: var(--space-xs);
+
+    &:not(:first-child) {
+      margin-block-start: var(--space-xs);
+    }
+  }
+
+  ol ::marker {
+    font-size: 1em;
+    font-weight: var(--font-bold);
+  }
+
+  /* Lists with classes and roles will be out of standard flow, so remove the default spacing */
+  [role="list"][class],
+  [role="tablist"][class] {
+    margin-block: 0;
+    padding: 0;
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  dt {
+    font-weight: var(--font-medium);
+  }
+
+  dt + dd {
+    margin-block-start: var(--space-xs);
+  }
+
+  dd + dt {
+    margin-block-start: var(--space-s);
+  }
+
+  dd {
+    margin-inline-start: 1.5ch;
+  }
+
+  blockquote {
+    border-inline-start: 4px solid var(--color-gray-ll);
+    margin-inline: 0;
+    padding-inline-start: var(--space-s);
+  }
+
+  blockquote footer {
+    margin-block-start: var(--space-s);
+    font-size: var(--font-size--1);
+  }
+
+  blockquote q {
+    font-style: normal;
+  }
+
+  :is(video, iframe[src*="youtube"], iframe[src*="vimeo"]) {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+
+  img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  figure {
+    margin-inline: 0;
+  }
+
+  figcaption {
+    color: var(--color-gray);
+    padding-block-start: var(--space-xs);
+    font-size: var(--font-size--1);
+  }
+
+  table {
+    border: 1px solid var(--color-gray-ll);
+    border-collapse: collapse;
+    font-size: var(--font-size--1);
+    width: 100%;
+  }
+
+  th {
+    text-align: left;
+    font-weight: var(--font-bold);
+    line-height: var(--leading-fine);
+  }
+
+  thead th {
+    padding-block: var(--space-s);
+  }
+
+  td,
+  th {
+    padding: var(--space-xs) var(--space-s);
+  }
+
+  th:not(:only-of-type) {
+    border-block-end: 1px solid var(--color-gray-ll);
+  }
+
+  th:only-of-type {
+    border-inline-end: 1px solid var(--color-gray-ll);
+  }
+
+  :is(th, td) ~ :is(th, td) {
+    border-inline-start: 1px solid var(--color-gray-ll);
+  }
+
+  tr + tr :is(th, td) {
+    border-block-start: 1px solid var(--color-gray-ll);
+  }
+
+  caption {
+    caption-side: bottom;
+    margin-block-start: var(--space-s);
+  }
+
+  a {
+    color: inherit;
+    text-underline-offset: 0.2ex;
+    text-decoration-color: currentColor;
+    text-decoration-skip-ink: none;
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.075em;
+    -webkit-text-decoration-skip-ink: none;
+
+    /* Enhanced support query for relative color syntax with 'from' keyword */
+    @supports (color: hsl(from white h s l)) {
+      text-decoration-color: hsl(
+        from var(--text-decoration-color, currentColor) h s l / 0.6
+      );
+    }
+
+    &:hover,
+    &:focus-visible {
+      text-decoration-line: none;
+    }
+  }
+
+  a:not([class]) {
+    font-weight: var(--font-medium);
+  }
+
+  /* :is(h1, h2, h3, h4) a:not([class]) {
+  text-decoration-thickness: 0.1ex;
+  text-underline-offset: 0.2ex;
+}
+
+:is(h1, h2, h3, h4) a:not([class]):hover {
+  text-underline-offset: 0.3ex;
+} */
+
+  :focus {
+    outline: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus-color, currentColor);
+    outline-offset: var(--focus-offset, 0.2lh);
+  }
+
+  /* Firefox is the only browser that doesn't outline the whole element unless you make it display: inline-block. That in itself causes multiple flow issues so we can detect it, using its own vendor prefix and reduce focus offset
+*/
+  @supports (-moz-appearance: none) {
+    :root {
+      --focus-offset: 0.08em;
+    }
+  }
+
+  :target {
+    scroll-margin-block: var(--space-3xl);
+  }
+
+  ::selection {
+    background: var(--color-gray-ll);
+    color: var(--color-black);
+  }
+
+  hr {
+    border: none;
+    border-block-start: var(--hr-stroke, var(--stroke));
+    margin-block: var(--flow-space, var(--space-xl));
+    width: 100%;
+  }
+
+  svg:not([class]) {
+    width: auto;
+    height: 1lh;
+  }
+
+  svg {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  svg[role="img"][width][height] {
+    width: revert;
+    height: revert;
+    background: var(--color-gray-l);
+    padding: var(--space-xs);
+  }
+
+  /* There's a .flow composition, but this prevents forms from having to have that applied where markup is harder to control in certain systems. It still uses the --flow-space variables though to make managing space easier */
+  form > * + * {
+    margin-top: var(--flow-space, 1rem);
+  }
+
+  :is(input, select, textarea) {
+    accent-color: var(--color-black);
+  }
+
+  :is(
+    input:not(
+      [type="checkbox"],
+      [type="radio"],
+      [type="color"],
+      [type="submit"]
+    ),
+    select,
+    textarea
+  ) {
+    padding: 0.3em 0.8em;
+    border-radius: var(--radius);
+    border: var(--stroke);
+    background: var(--color-background);
+    color: var(--color-black);
+    font-size: min(var(--font-size-0), 18px);
+    width: 100%;
+
+    &::placeholder {
+      color: var(--color-gray);
+      opacity: 1;
+    }
+  }
+
+  input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    margin-inline: 0.3em;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MiIgaGVpZ2h0PSI1MiIgZmlsbD0iIzAwMDAwMCIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxwYXRoIGQ9Ik0xNjUuNjYsMTAxLjY2LDEzOS4zMSwxMjhsMjYuMzUsMjYuMzRhOCw4LDAsMCwxLTExLjMyLDExLjMyTDEyOCwxMzkuMzFsLTI2LjM0LDI2LjM1YTgsOCwwLDAsMS0xMS4zMi0xMS4zMkwxMTYuNjksMTI4LDkwLjM0LDEwMS42NmE4LDgsMCwwLDEsMTEuMzItMTEuMzJMMTI4LDExNi42OWwyNi4zNC0yNi4zNWE4LDgsMCwwLDEsMTEuMzIsMTEuMzJaTTIzMiwxMjhBMTA0LDEwNCwwLDEsMSwxMjgsMjQsMTA0LjExLDEwNC4xMSwwLDAsMSwyMzIsMTI4Wm0tMTYsMGE4OCw4OCwwLDEsMC04OCw4OEE4OC4xLDg4LjEsMCwwLDAsMjE2LDEyOFoiPjwvcGF0aD48L3N2Zz4=");
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+  }
+
+  label {
+    line-height: var(--leading-fine);
+    font-weight: var(--font-medium);
+  }
+
+  label::after {
+    content: "\A";
+    white-space: pre;
+  }
+
+  /* Usually label wraps checkbox and radio buttons, so we give ourselves more layout and text-flow control with flex */
+  label:has(input) {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-s);
+    font-weight: var(--font-normal);
+  }
+
+  label:has(input) + label:has(input) {
+    --flow-spce: var(--space-s-m);
+  }
+
+  /* Slightly adjusts the vertical position of the check/radio */
+  label:has(input) input {
+    transform: translateY(-0.1ex);
+  }
+
+  input:disabled {
+    background: var(--color-gray-l);
+  }
+
+  input:disabled,
+  label input:disabled + * {
+    cursor: not-allowed;
+  }
+
+  fieldset {
+    border: var(--stroke);
+    padding: var(--space-s);
+  }
+
+  legend {
+    font-weight: var(--font-medium);
+    padding-inline: var(--space-xs);
+  }
+
+  details:not(.anchor-nav__details) {
+    border-block: 1px solid var(--color-gray-ll);
+
+    @media (prefers-reduced-motion: no-preference) {
+      interpolate-size: allow-keywords;
+    }
+
+    summary {
+      --icon-height: 1.1em;
+      --icon-width: 1.1em;
+      cursor: pointer;
+      list-style: none;
+      padding-block: var(--space-m);
+      padding-inline-end: calc(var(--icon-width) * 2);
+      position: relative;
+
+      .icon {
+        content: "";
+        color: var(--color-black);
+        inset: calc(50% - (var(--icon-height) / 2)) 1rem auto auto;
+        position: absolute;
+        transition: transform 0.25s;
+      }
+    }
+
+    &::details-content {
+      opacity: 0;
+      block-size: 0;
+      overflow-y: clip;
+      transition:
+        content-visibility 0.3s allow-discrete,
+        opacity 0.3s,
+        block-size 0.3s;
+      transition-timing-function: var(--ease-in-sine);
+    }
+
+    &[open] {
+      padding-block-end: var(--space-m);
+
+      &::details-content {
+        opacity: 1;
+        block-size: auto;
+        transition-timing-function: var(--ease-out-sine);
+      }
+
+      summary {
+        .icon {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    + details {
+      border-block-start: none;
+    }
+  }
+}

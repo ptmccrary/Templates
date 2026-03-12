@@ -1,0 +1,36 @@
+/*
+WRAPPER COMPOSITION
+A common wrapper/container
+
+CUSTOM PROPERTIES AND CONFIGURATION
+--wrapper-max-width (1360px): The maximum width of the wrapper
+--site-margin (var(--space-s-xl)): The space between the wrapper and the viewport
+*/
+
+@layer compositions {
+  .wrapper {
+    margin-inline: auto;
+    max-width: calc(
+      var(--wrapper-max-width, 1360px) + (var(--site-margin, 0px) * 2)
+    );
+    padding-inline: var(--site-margin);
+    position: relative;
+    width: 100%;
+
+    &[data-full-width] {
+      --wrapper-max-width: 100%;
+    }
+
+    &[data-wrapper-padding="none"] {
+      padding-inline: 0;
+    }
+
+    &[data-wrapper-padding="left"] {
+      padding-right: 0;
+    }
+
+    &[data-unset-position] {
+      position: static;
+    }
+  }
+}

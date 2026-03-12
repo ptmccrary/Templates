@@ -1,0 +1,13 @@
+@layer compositions {
+  .pile {
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
+
+    > * {
+      grid-area: 1 / 1;
+      /* opacity: 0; */
+      place-self: center;
+    }
+  }
+}

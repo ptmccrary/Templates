@@ -1,0 +1,56 @@
+@layer blocks {
+  .btn {
+    align-items: center;
+    border-radius: var(--radius);
+    background-color: transparent;
+    border: transparent;
+    color: currentColor;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: var(--font-size--1);
+    font-weight: var(--font-medium);
+    gap: var(--space-xs);
+    justify-content: center;
+    line-height: var(--leading-flat);
+    min-width: 150px;
+    padding: clamp(0.75rem, 0.6779rem + 0.2885vw, 0.9375rem) var(--space-m);
+    text-decoration-line: none;
+    transition:
+      background-color 0.1s var(--ease-in-out-sine),
+      color 0.1s var(--ease-in-out-sine),
+      border-color 0.1s var(--ease-in-out-sine),
+      transform 0.1s var(--ease-in-out-sine);
+
+    @media (width < 400px) {
+      display: flex;
+      width: 100%;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    &[data-btn-size="sm"] {
+      padding: var(--space-xs);
+    }
+
+    &[data-btn-shape="pill"] {
+      border-radius: 9999px;
+    }
+
+    &[data-btn-shape="circle"] {
+      border-radius: 50%;
+    }
+
+    &[data-btn-theme="success"] {
+      background-color: var(--color-success);
+      color: var(--color-white);
+
+      &:hover {
+        background-color: var(--color-on-success);
+      }
+    }
+  }
+}

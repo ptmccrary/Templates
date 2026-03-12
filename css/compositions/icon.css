@@ -1,0 +1,36 @@
+/* ICON COMPOSITION
+Related Every Layout: https://every-layout.dev/layouts/icon/
+A layout that lets you distribute items with consitent spacing, regardless of their size
+
+CUSTOM PROPERTIES AND CONFIGURATION
+--icon-vertical-alignment (baseline): How items should align vertically. Can be any acceptable flexbox alignment value.
+--icon-width (1cap or 0.75em): The width of the icon.
+--icon-height (1cap or 0.75em): The height of the icon.
+*/
+
+@layer compositions {
+  .icon {
+    height: var(--icon-height, 1.2em);
+    width: var(--icon-width, 1.2em);
+  }
+
+  .with-icon {
+    align-items: var(--icon-vertical-alignment, center);
+    display: flex;
+    line-height: var(--leading-flat);
+
+    &[data-icon-position="after"] {
+      flex-direction: row-reverse;
+
+      .icon {
+        margin-inline-start: 0.5em;
+      }
+    }
+
+    &:not([data-icon-position="after"]) {
+      .icon {
+        margin-inline-end: 0.5em;
+      }
+    }
+  }
+}

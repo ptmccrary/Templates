@@ -1,0 +1,14 @@
+/*
+FLOW COMPOSITION
+Like the Every Layout stack: https://every-layout.dev/layouts/stack/
+Info about this implementation: https://piccalil.li/blog/my-favourite-3-lines-of-css/
+
+CUSTOM PROPERTIES AND CONFIGURATION
+--flow-space (1em): The space between each item in the flow
+*/
+
+@layer compositions {
+  .flow > * + * {
+    margin-block-start: var(--flow-space, 1em);
+  }
+}
