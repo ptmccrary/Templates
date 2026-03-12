@@ -27,6 +27,68 @@
     --leading-standard: 1.5;
     --leading-loose: 1.7;
 
+    /* Colors
+    ================================== */
+    /* Base */
+    --color-black: #000;
+    --color-white: #fff;
+
+    /* Brand */
+    --color-blue: #0070f3;
+    --color-blue-dark: #0051a2;
+
+    --color-orange: #ff5f1f;
+    --color-orange-dark: #cc4b17;
+
+    /* Status */
+    --color-red: #e02d00;
+    --color-red-dark: #b02000;
+
+    --color-yellow: #ffdd6d;
+    --color-yellow-dark: #f8c930;
+
+    --color-green: #1f9a00;
+    --color-green-dark: #1a7a00;
+
+    /* Grays */
+    --color-gray-ll: #ddd;
+    --color-gray-l: #aaa;
+    --color-gray: #666;
+    --color-gray-d: #333;
+
+    /* Color Map */
+    --color-error: var(--color-red);
+    --color-on-error: var(--color-red-dark);
+    --color-pending: var(--color-yellow);
+    --color-on-pending: var(--color-yellow-dark);
+    --color-success: var(--color-green);
+    --color-on-success: var(--color-green-dark);
+
+    --color-background: var(--color-white);
+    --color-foreground: var(--color-black);
+    --color-accent: var(--color-orange);
+
+    /* Shadows
+    ================================== */
+    --shadow-color: 0deg 0% 0%;
+    --shadow-elevation-low:
+      0px 0.5px 0.5px hsl(var(--shadow-color) / 0.07),
+      0px 0.7px 0.7px -1.5px hsl(var(--shadow-color) / 0.06),
+      0px 1.6px 1.7px -3px hsl(var(--shadow-color) / 0.06);
+    --shadow-elevation-medium:
+      0px 0.5px 0.5px hsl(var(--shadow-color) / 0.08),
+      0px 1.3px 1.4px -1px hsl(var(--shadow-color) / 0.07),
+      0px 3.2px 3.4px -2px hsl(var(--shadow-color) / 0.06),
+      0px 8.1px 8.5px -3px hsl(var(--shadow-color) / 0.06);
+    --shadow-elevation-high:
+      0px 0.5px 0.5px hsl(var(--shadow-color) / 0.08),
+      0px 1.9px 2px -0.5px hsl(var(--shadow-color) / 0.08),
+      0px 3.6px 3.8px -1px hsl(var(--shadow-color) / 0.07),
+      0px 6.5px 6.8px -1.5px hsl(var(--shadow-color) / 0.07),
+      0px 11.3px 11.9px -2px hsl(var(--shadow-color) / 0.07),
+      0px 19px 20px -2.5px hsl(var(--shadow-color) / 0.06),
+      0.1px 30.3px 31.8px -3px hsl(var(--shadow-color) / 0.06);
+
     /* Font Sizes
     ================================== */
     /* @link https://utopia.fyi/type/calculator?c=400,16,1.2,1440,20,1.2,9,3,&s=0.75,1.5,s-l&g=s,l,xl,12 */
@@ -105,47 +167,6 @@
     /* Space m-xl: 24px → 50px */
     --space-m-xl: clamp(1.5rem, 0.875rem + 2.5vw, 3.125rem);
 
-    /* Colors
-    ================================== */
-    /* Base */
-    --color-black: #000;
-    --color-white: #fff;
-
-    /* Brand */
-    --color-blue: #0070f3;
-    --color-blue-dark: #0051a2;
-
-    --color-orange: #ff5f1f;
-    --color-orange-dark: #cc4b17;
-
-    /* Status */
-    --color-red: #e02d00;
-    --color-red-dark: #b02000;
-
-    --color-yellow: #ffdd6d;
-    --color-yellow-dark: #f8c930;
-
-    --color-green: #1f9a00;
-    --color-green-dark: #1a7a00;
-
-    /* Grays */
-    --color-gray-ll: #ddd;
-    --color-gray-l: #aaa;
-    --color-gray: #666;
-    --color-gray-d: #333;
-
-    /* Color Map */
-    --color-error: var(--color-red);
-    --color-on-error: var(--color-red-dark);
-    --color-pending: var(--color-yellow);
-    --color-on-pending: var(--color-yellow-dark);
-    --color-success: var(--color-green);
-    --color-on-success: var(--color-green-dark);
-
-    --color-background: var(--color-white);
-    --color-foreground: var(--color-black);
-    --color-accent: var(--color-orange);
-
     /* Motion
     ================================== */
     --ease-in-sine: cubic-bezier(0.12, 0, 0.39, 0);
@@ -154,27 +175,6 @@
     --ease-in-cubic: cubic-bezier(0.32, 0, 0.67, 0);
     --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
     --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
-
-    /* Shadows
-    ================================== */
-    --shadow-color: 0deg 0% 0%;
-    --shadow-elevation-low:
-      0px 0.5px 0.5px hsl(var(--shadow-color) / 0.07),
-      0px 0.7px 0.7px -1.5px hsl(var(--shadow-color) / 0.06),
-      0px 1.6px 1.7px -3px hsl(var(--shadow-color) / 0.06);
-    --shadow-elevation-medium:
-      0px 0.5px 0.5px hsl(var(--shadow-color) / 0.08),
-      0px 1.3px 1.4px -1px hsl(var(--shadow-color) / 0.07),
-      0px 3.2px 3.4px -2px hsl(var(--shadow-color) / 0.06),
-      0px 8.1px 8.5px -3px hsl(var(--shadow-color) / 0.06);
-    --shadow-elevation-high:
-      0px 0.5px 0.5px hsl(var(--shadow-color) / 0.08),
-      0px 1.9px 2px -0.5px hsl(var(--shadow-color) / 0.08),
-      0px 3.6px 3.8px -1px hsl(var(--shadow-color) / 0.07),
-      0px 6.5px 6.8px -1.5px hsl(var(--shadow-color) / 0.07),
-      0px 11.3px 11.9px -2px hsl(var(--shadow-color) / 0.07),
-      0px 19px 20px -2.5px hsl(var(--shadow-color) / 0.06),
-      0.1px 30.3px 31.8px -3px hsl(var(--shadow-color) / 0.06);
 
     /* Measures
     ================================== */
@@ -194,6 +194,16 @@
 
     --wrapper-max-width: 1920px;
 
+    /* Z-Index
+    ================================== */
+    --z-base: 0;
+    --z-sidebar: 100;
+    --z-toast: 200;
+    --z-popup: 300;
+    --z-overlay: 400;
+
+    /* Responsive Font Sizes
+    ================================== */
     @media (width >= 1650px) {
       font-size: 18px;
     }
